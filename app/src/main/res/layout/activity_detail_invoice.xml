@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailInvoiceActivity">
+    <TextView
+        android:id="@+id/tittle"
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:text="Chi tiết đơn hàng"
+        android:textSize="20dp"
+        android:background="#b5ddff"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:id="@+id/detailInvoiceListView"
+        app:layout_constraintTop_toBottomOf="@+id/tittle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+    </ListView>
+
+</android.support.constraint.ConstraintLayout>

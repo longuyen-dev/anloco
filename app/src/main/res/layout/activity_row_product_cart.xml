@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RowProductCartActivity">
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/idPrdCartTV"
+            android:background="#d1d1d1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+        <TextView
+            android:id="@+id/namePrdCartTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".75"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/quantumCartTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"/>
+        <TextView
+            android:id="@+id/pricePrdCartTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"/>
+        <TextView
+            android:id="@+id/totalPrdCartTV"
+            android:layout_width="0dp"
+            android:textColor="#ff0000"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

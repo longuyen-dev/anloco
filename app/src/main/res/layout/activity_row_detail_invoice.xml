@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RowDetailInvoiceActivity">
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/idPrdOfInlTV"
+            android:layout_width="0dp"
+            android:layout_weight=".25"
+            android:text="ID"
+            android:padding="2dp"
+            android:background="#d6d6d6"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/namePrdOfInlTV"
+            android:layout_width="0dp"
+            android:padding="2dp"
+            android:layout_weight=".75"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:padding="2dp"
+            android:text="SL"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30"/>
+        <TextView
+            android:layout_width="0dp"
+            android:padding="2dp"
+            android:text="Giá"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30"/>
+        <TextView
+            android:layout_width="0dp"
+            android:padding="2dp"
+            android:text="Tổng"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout2"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/quantumOfPrdTV"
+            android:layout_width="0dp"
+            android:padding="2dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30"/>
+        <TextView
+            android:id="@+id/priceOfPrdTV"
+            android:layout_width="0dp"
+            android:padding="2dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_weight=".30"/>
+        <TextView
+            android:id="@+id/totalOfPrdTV"
+            android:layout_width="0dp"
+            android:padding="2dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_weight=".40"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

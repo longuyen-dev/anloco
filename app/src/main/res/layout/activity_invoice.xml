@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InvoiceActivity"
+    android:padding="5dp">
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/idInvoiceET"
+            android:layout_width="0dp"
+            android:hint="Mã hoá đơn"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:background="#d4d4d4"
+            android:editable="false"/>
+        <EditText
+            android:id="@+id/dateInvoiceET"
+            android:hint="Chọn ngày"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:layout_weight=".50"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/addressCusInvoiceET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:hint="Địa chỉ"
+            android:background="#d4d4d4"
+            android:layout_marginRight="1dp"
+            android:editable="false"/>
+        <EditText
+            android:id="@+id/phoneCusInvoiceET"
+            android:background="#d4d4d4"
+            android:layout_width="0dp"
+            android:hint="SĐT"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:editable="false"
+            android:layout_weight=".50"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout3"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/idCusInvoiceET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"
+            android:hint="ID"
+            android:background="#d4d4d4"
+            android:editable="false"/>
+        <AutoCompleteTextView
+            android:id="@+id/searchCusInvoiceET"
+            android:hint="Nhập tên hoặc mã"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".75"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/LinearLayout4"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#a3a3a3">
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@id/LinearLayout5"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/idProductInvoiceEditText"
+            android:layout_width="0dp"
+            android:layout_weight=".15"
+            android:background="#eaeaea"
+            android:editable="false"
+            android:layout_height="wrap_content" />
+        <AutoCompleteTextView
+            android:id="@+id/searchProductInvoiceEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Tìm hàng hoá"
+
+            android:layout_weight=".60"/>
+        <Button
+            android:id="@+id/addToCartBT"
+            android:background="#52a2f7"
+            android:textColor="#ffffff"
+            android:text="Thêm"
+            android:layout_margin="3dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout6"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/quantumET"
+            android:layout_width="0dp"
+            android:numeric="integer"
+            android:text="1"
+            android:layout_height="wrap_content"
+            android:layout_weight=".35"/>
+        <EditText
+            android:id="@+id/priceET"
+            android:text="0"
+            android:numeric="signed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".65"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/cartListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout6"
+        app:layout_constraintBottom_toTopOf="@id/LinearLayout7">
+
+    </ListView>
+    <LinearLayout
+        android:id="@+id/LinearLayout7"
+        android:background="#eaeaea"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Tổng cộng:"
+            android:gravity="center"
+            android:layout_weight=".25"/>
+        <TextView
+            android:id="@+id/totalPayET"
+            android:text="0"
+            android:textColor="#ff0000"
+            android:gravity="fill_vertical"
+            android:textAlignment="textEnd"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight=".60"
+            tools:ignore="RtlCompat" />
+        <Button
+            android:id="@+id/gotoPayBT"
+            android:background="#52a2f7"
+            android:textColor="#ffffff"
+            android:text="OK"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"/>
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

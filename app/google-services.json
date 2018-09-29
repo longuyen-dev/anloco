@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "780968254724",
+    "firebase_url": "https://anlocco-70bc6.firebaseio.com",
+    "project_id": "anlocco-70bc6",
+    "storage_bucket": "anlocco-70bc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780968254724:android:a94bb934f1fc118d",
+        "android_client_info": {
+          "package_name": "com.example.mrlong.anloccodemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780968254724-1lafjji5i4562b8dlmcb9p51chcvhdjc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLsWbdWhnSffGZQ8S36bMMGUppkpMDApg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780968254724:android:117fd41468007a05",
+        "android_client_info": {
+          "package_name": "com.example.mrlong.anloco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780968254724-1lafjji5i4562b8dlmcb9p51chcvhdjc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLsWbdWhnSffGZQ8S36bMMGUppkpMDApg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

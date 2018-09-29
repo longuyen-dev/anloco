@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailProductActivity"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/actionBarTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thông tin khách hàng"
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:background="#FF7FA3FF"/>
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        app:layout_constraintTop_toBottomOf="@+id/actionBarTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Mã HH"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+
+        <EditText
+            android:id="@+id/detailIdPrdET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            />
+
+        <Spinner
+            android:id="@+id/detailGroupPrdSP"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:text="Tên"/>
+        <EditText
+            android:id="@+id/detailNamePrdtomerET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".75"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout2"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:text="Giá 1"/>
+        <EditText
+            android:id="@+id/price1EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:text="Giá 2"/>
+        <EditText
+            android:id="@+id/price2EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:text="Giá 3"/>
+        <EditText
+            android:id="@+id/price3EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            android:text="Giá 4"/>
+        <EditText
+            android:id="@+id/price4EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LinearLayout5"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout4"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/deleteCusBT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:text="Xoá"
+            android:background="#ff0000"
+            android:textColor="#fff"/>
+        <Button
+            android:id="@+id/editCusBT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:text="Sửa"/>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

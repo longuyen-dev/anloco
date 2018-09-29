@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateProductActivity"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/featureTextView"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="#7fa3ff"
+        android:padding="10dp"
+        android:text="Thêm Hàng Hoá"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/featureTextView"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Mã hàng"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+        <EditText
+            android:id="@+id/idProductEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+
+
+        <Spinner
+            android:id="@+id/groupProductSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Tên hàng"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+        <EditText
+            android:id="@+id/nameProductEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".75"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout2"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Giá 1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+        <EditText
+            android:id="@+id/price1EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            />
+        <TextView
+            android:text="Giá 2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"/>
+        <EditText
+            android:id="@+id/price2EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".35"/>
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout3"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Giá 3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+        <EditText
+            android:id="@+id/price3EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"
+            />
+        <TextView
+            android:text="Giá 4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"/>
+        <EditText
+            android:id="@+id/price4EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".35"/>
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout4"
+
+        android:orientation="horizontal">
+
+
+
+
+        <Button
+            android:text="Thêm"
+            android:id="@+id/insertNewProductButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".100"
+
+            />
+
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/featureTextView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm Nhóm Hàng"
+        android:background="#7fa3ff"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout5"
+        />
+    <LinearLayout
+        android:id="@+id/LinearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/featureTextView1"
+
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/idGroupProductEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Mã nhóm"
+            android:layout_weight=".25" />
+        <EditText
+            android:id="@+id/nameGroupProductEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Tên Nhóm"
+            android:layout_weight=".50" />
+        <Button
+            android:id="@+id/insertNewGroupProductButton"
+            android:layout_width="0dp"
+            android:text="Thêm"
+            android:layout_height="wrap_content"
+            android:layout_weight=".25"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/groupProductListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout6"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </ListView>
+</android.support.constraint.ConstraintLayout>
