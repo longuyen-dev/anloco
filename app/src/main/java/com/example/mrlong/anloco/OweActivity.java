@@ -1,5 +1,6 @@
 package com.example.mrlong.anloco;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -56,6 +58,14 @@ public class OweActivity extends Fragment {
         oweListView = mRootView.findViewById(R.id.oweListView);
         adapterOwe = new RowOweActivity(mRootView.getContext(), R.layout.activity_row_owe,oweArrayList);
         oweListView.setAdapter(adapterOwe);
+        oweListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(mRootView.getContext(),DetailOweActivity.class);
+                i.putExtra("nameCus", oweArrayList.get(position).idCustomer);
+                startActivity(i);
+            }
+        });
     }
 
 
@@ -70,11 +80,12 @@ public class OweActivity extends Fragment {
                 }else{
                     boolean equalCustomer = false; // check have customer?
                     for(Owe o: oweArrayList){
-                        if(o.idCustomer == ivl.customer){
+                        if(o.idCustomer.equals(ivl.customer)){
                             int oldOwe = o.owe;
                             int newOwe = oldOwe + Integer.parseInt(ivl.own);
                             o.owe = newOwe;
                             equalCustomer = true;
+
                         }
                     }
                     if(equalCustomer == false){

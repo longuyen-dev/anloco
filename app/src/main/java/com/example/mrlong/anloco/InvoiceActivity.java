@@ -22,6 +22,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +34,8 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
 
 import Contains.Reference;
 import Objects.Customer;
@@ -340,7 +344,12 @@ public class InvoiceActivity extends Fragment {
             @Override
             public void onClick(View v) {
                 Invoice i = new Invoice(idOfInvoiceET.getText().toString(),dateET.getText().toString(),idCusET.getText().toString(), total.getText().toString(), pay.getText().toString(), owe.getText().toString());
-                invoiceRef.child(idOfInvoiceET.getText().toString()).setValue(i);
+                invoiceRef.child(idOfInvoiceET.getText().toString()).setValue(i).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        editIdInvoice();
+                    }
+                });
 
                 for(ProductToCart ptc: productToCartsList){
                     invoiceRef.child(idOfInvoiceET.getText().toString()).child("detail").push().setValue(ptc);
@@ -349,6 +358,7 @@ public class InvoiceActivity extends Fragment {
                 productToCartsList.clear();
                 calculateTotal();
                 rowProductCartAdapter.notifyDataSetChanged();
+
                 payDialog.dismiss();
             }
         });
@@ -371,12 +381,16 @@ public class InvoiceActivity extends Fragment {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
+            String month = String.valueOf(monthOfYear+1);
+            String day = String.valueOf(dayOfMonth);
+            if(monthOfYear < 10) month = "0"+month;
+            if(dayOfMonth < 10) day = "0"+day;
 
-            final String dateToSet = String.valueOf(year) + "-" + String.valueOf(monthOfYear)
-                    + "-" + String.valueOf(dayOfMonth);
+            final String dateToSet = String.valueOf(year) + "-" + month
+                    + "-" + day;
             dateET.setText(dateToSet);
-            final String dateString = String.valueOf(year) + String.valueOf(monthOfYear)
-                    + String.valueOf(dayOfMonth);
+            final String dateString = String.valueOf(year) +  month
+                    + day;
             invoiceRef.orderByChild("dateInvoice").equalTo(dateToSet).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -392,6 +406,23 @@ public class InvoiceActivity extends Fragment {
 
         }
     };
+    void editIdInvoice(){
+        final String dateString = dateET.getText().toString();
+        invoiceRef.orderByChild("dateInvoice").equalTo(dateString).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int lastId = (int) (dataSnapshot.getChildrenCount() + 1);
+                String lastIdStr = String.valueOf(lastId);
+                System.out.println("edit id with lastID: "+ lastIdStr+ "day: "+dateString);
+                String dateString1 = dateString.replace("-","");
+                createIdInvoice(dateString1,lastIdStr);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     private void createIdInvoice(String dateString, String date) {
         int dateInt = Integer.parseInt(date);
