@@ -33,7 +33,7 @@
         <activity android:name=".OweActivity" />
         <activity android:name=".DetailInvoiceActivity" />
         <activity android:name=".RowDetailInvoiceActivity" />
-        <activity android:name=".RowOweActivity"></activity>
+        <activity android:name=".RowOweActivity" />
     </application>
 
 </manifest>

@@ -25,6 +25,7 @@ import java.util.Map;
 
 import Contains.Reference;
 import Objects.Invoice;
+import Objects.Owe;
 
 public class OweActivity extends Fragment {
 
@@ -37,8 +38,8 @@ public class OweActivity extends Fragment {
     DatabaseReference invoiceRef = new Reference().getInvoiceRef();
 
 
-    Map<String, Integer> oweList = new HashMap<>();
-    RowOweActivity adapter = new RowOweActivity(oweList);
+    ArrayList<Owe> oweArrayList = new ArrayList<>();
+    RowOweActivity adapterOwe;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,27 +54,34 @@ public class OweActivity extends Fragment {
     }
     public void setupListView() {
         oweListView = mRootView.findViewById(R.id.oweListView);
-        oweListView.setAdapter(adapter);
+        adapterOwe = new RowOweActivity(mRootView.getContext(), R.layout.activity_row_owe,oweArrayList);
+        oweListView.setAdapter(adapterOwe);
     }
 
 
     private void observerAllOwe() {
-        oweList.clear();
         invoiceRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Invoice ivl = dataSnapshot.getValue(Invoice.class);
-                int own = Integer.parseInt(ivl.own);
-                if(!oweList.containsKey(ivl.customer)){
-
-                    oweList.put(ivl.customer,own);
+                if(oweArrayList.size() == 0){
+                    Owe owe = new Owe(ivl.customer,Integer.parseInt(ivl.own));
+                    oweArrayList.add(owe);
                 }else{
-
-                    int newOwe = oweList.get(ivl.customer) + own;
-                    oweList.put(ivl.customer,newOwe);
-
+                    boolean equalCustomer = false; // check have customer?
+                    for(Owe o: oweArrayList){
+                        if(o.idCustomer == ivl.customer){
+                            int oldOwe = o.owe;
+                            int newOwe = oldOwe + Integer.parseInt(ivl.own);
+                            o.owe = newOwe;
+                            equalCustomer = true;
+                        }
+                    }
+                    if(equalCustomer == false){
+                        oweArrayList.add(new Owe(ivl.customer, Integer.parseInt(ivl.own)));
+                    }
                 }
-                adapter.notifyDataSetChanged();
+                adapterOwe.notifyDataSetChanged();
             }
 
             @Override
@@ -106,8 +114,12 @@ public class OweActivity extends Fragment {
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(oweList);
+                for(Owe o:oweArrayList){
+                    System.out.println(o.idCustomer);
+                    System.out.println(o.owe);
+                }
             }
         });
+
     }
 }
