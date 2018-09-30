@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import Contains.Lib;
 import Objects.Invoice;
 
 public class RowInvoiceActivity extends ArrayAdapter<Invoice> {
@@ -34,6 +35,7 @@ public class RowInvoiceActivity extends ArrayAdapter<Invoice> {
         Invoice ivl = getItem(position);
 
         if(ivl != null){
+            Lib lib = new Lib();
             TextView idIvl = v.findViewById(R.id.idInvoiceTV);
                 idIvl.setText(ivl.idInvoice);
             TextView dateIvl = v.findViewById(R.id.dateInvoiceTV);
@@ -41,11 +43,12 @@ public class RowInvoiceActivity extends ArrayAdapter<Invoice> {
             TextView nameCus = v.findViewById(R.id.nameCustomerIvlTV);
                 nameCus.setText(ivl.customer);
             TextView totalIvl = v.findViewById(R.id.totalIvlTV);
-                totalIvl.setText(ivl.total);
+                totalIvl.setText(lib.addDotToString(ivl.total));
             TextView payIvl = v.findViewById(R.id.payIvlTV);
-                payIvl.setText(ivl.pay);
+
+                payIvl.setText(lib.addDotToString(ivl.pay));
             TextView ownIvl = v.findViewById(R.id.ownIvlTV);
-                ownIvl.setText(ivl.own);
+                ownIvl.setText(lib.addDotToString(ivl.own));
         }
 
         return v;

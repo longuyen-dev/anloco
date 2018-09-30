@@ -42,9 +42,12 @@ public class RowDetailInvoiceActivity extends ArrayAdapter<ProductToCart> {
             TextView quantum = v.findViewById(R.id.quantumOfPrdTV);
                 quantum.setText(ptc.quantum);
             TextView price = v.findViewById(R.id.priceOfPrdTV);
-                price.setText(ptc.price);
+                String priceWithDot = String.format("%,d",Integer.parseInt(ptc.price));
+                price.setText(priceWithDot);
             TextView total = v.findViewById(R.id.totalOfPrdTV);
-                total.setText(ptc.total);
+                String totalWithDot = String.format("%,d",Integer.parseInt(ptc.total));
+
+                total.setText(totalWithDot);
         }
 
         return v;

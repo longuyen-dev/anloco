@@ -39,7 +39,8 @@ public class RowOweActivity extends ArrayAdapter<Owe> {
             TextView customerTV = v.findViewById(R.id.idCustomerTextView);
                 customerTV.setText(o.idCustomer);
             TextView oweTV = v.findViewById(R.id.oweCustomerTextView);
-                oweTV.setText(String.valueOf(o.owe));
+                String oweString = String.format("%,d",o.owe);
+                oweTV.setText(oweString);
         }
         return v;
     }

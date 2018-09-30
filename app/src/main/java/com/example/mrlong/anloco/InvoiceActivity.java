@@ -288,7 +288,8 @@ public class InvoiceActivity extends Fragment {
                 idProductInvoiceET.setText("");
                 searchProductET.setText("");
                 pricePrdET.setText("0");
-                quantumPrdET.setText("0");
+                quantumPrdET.setText("1");
+                searchCustomerET.requestFocus();
             }
         });// add to cart button.
 

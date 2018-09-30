@@ -251,8 +251,12 @@ public class ManagerInvoice extends Fragment {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
-            String dateToSet = String.valueOf(year) + "-" + String.valueOf(monthOfYear)
-                    + "-" + String.valueOf(dayOfMonth);
+            String month = String.valueOf(monthOfYear+1);
+            String day = String.valueOf(dayOfMonth);
+            if(monthOfYear < 10) month = "0"+month;
+            if(dayOfMonth < 10) day = "0"+day;
+            String dateToSet = String.valueOf(year) + "-" + month
+                    + "-" + day;
 
             if(swich == 0){
                 fromDateET.setText(dateToSet);

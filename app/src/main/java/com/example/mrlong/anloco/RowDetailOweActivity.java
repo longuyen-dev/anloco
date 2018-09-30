@@ -38,11 +38,14 @@ public class RowDetailOweActivity extends ArrayAdapter<Invoice> {
             TextView dateIvl = v.findViewById(R.id.dateInvoiceTextView);
                 dateIvl.setText(ivl.dateInvoice);
             TextView totalIvl = v.findViewById(R.id.totalTextView);
-                totalIvl.setText(ivl.total);
+                String totalWithDot = String.format("%,d",Integer.parseInt(ivl.total));
+                totalIvl.setText(totalWithDot);
             TextView payIvl = v.findViewById(R.id.payTextView);
-                payIvl.setText(ivl.pay);
+                String payWithDot = String.format("%,d",Integer.parseInt(ivl.pay));
+                payIvl.setText(payWithDot);
             TextView ownIvl = v.findViewById(R.id.oweTextView);
-                ownIvl.setText(ivl.own);
+                String oweWithDot = String.format("%,d",Integer.parseInt(ivl.own));
+                ownIvl.setText(oweWithDot);
         }
 
         return v;
