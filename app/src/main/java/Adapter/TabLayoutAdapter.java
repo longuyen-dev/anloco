@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.mrlong.anloco.AccoutActivity;
 import com.example.mrlong.anloco.CustomerActivity;
 import com.example.mrlong.anloco.InvoiceActivity;
 import com.example.mrlong.anloco.ManagerInvoice;
@@ -12,7 +13,7 @@ import com.example.mrlong.anloco.ProductActivity;
 import com.example.mrlong.anloco.SupplierActivity;
 
 public class TabLayoutAdapter extends FragmentStatePagerAdapter {
-    private String listTab[] = {"Khách Hàng","Nhà cung cấp","Hàng hoá","Hoá đơn","Quản lý","Nợ"};
+    private String listTab[] = {"Khách Hàng","Nhà cung cấp","Hàng hoá","Hoá đơn","Quản lý","Nợ","Tài khoản"};
 
     private CustomerActivity customerActivity;
     private SupplierActivity supplierActivity;
@@ -20,6 +21,7 @@ public class TabLayoutAdapter extends FragmentStatePagerAdapter {
     private InvoiceActivity invoiceActivity;
     private OweActivity oweActivity;
     private ManagerInvoice managerInvoice;
+    private AccoutActivity accoutActivity;
 
     public TabLayoutAdapter(FragmentManager fm) {
         super(fm);
@@ -29,6 +31,7 @@ public class TabLayoutAdapter extends FragmentStatePagerAdapter {
         invoiceActivity = new InvoiceActivity();
         managerInvoice = new ManagerInvoice();
         oweActivity = new OweActivity();
+        accoutActivity = new AccoutActivity();
     }
 
     @Override
@@ -45,6 +48,8 @@ public class TabLayoutAdapter extends FragmentStatePagerAdapter {
             return managerInvoice;
         }else if(position == 5){
             return oweActivity;
+        }else if(position ==6){
+            return accoutActivity;
         }
 
         return null;

@@ -1,6 +1,7 @@
 package com.example.mrlong.anloco;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -47,6 +48,8 @@ public class CustomerActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.activity_customer,container,false);
+
+
         initView();
         setupGroupSpinner();
         setupCustomerListView();

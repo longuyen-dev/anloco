@@ -35,7 +35,10 @@
         <activity android:name=".RowDetailInvoiceActivity" />
         <activity android:name=".RowOweActivity" />
         <activity android:name=".DetailOweActivity" />
-        <activity android:name=".RowDetailOweActivity"></activity>
+        <activity android:name=".RowDetailOweActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".AccoutActivity" />
+        <activity android:name=".RowAccountActivity"></activity>
     </application>
 
 </manifest>
